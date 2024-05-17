@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/07 10:57:52 by ismherna          #+#    #+#              #
-#    Updated: 2024/05/07 21:25:49 by ismherna         ###   ########.fr        #
+#    Created: 2024/04/24 13:02:25 by ismherna          #+#    #+#              #
+#    Updated: 2024/05/17 12:47:02 by ismherna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push_swap
 
 CC		= gcc
-CFLAGS	= -Werror -Wextra -Wall
+CFLAGS	= -Werror -Wextra -Wall -g3
 
 LIBFT_PATH	= libft/
 LIBFT_NAME	= libft.a
@@ -23,7 +23,12 @@ INC			=	-I ./includes/\
 				-I ./libft/\
 
 SRC_PATH	=	src/
-SRC			=	
+SRC			=	ps_instructions.c \
+				ps_parse.c \
+				push_swap.c \
+				ksort.c \
+				ksort_utils.c \
+				stack_utils.c 
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
 # Objects
@@ -39,17 +44,15 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 $(OBJS): $(OBJ_PATH)
 
 $(OBJ_PATH):
-	@mkdir $(OBJ_PATH)
-	@mkdir $(OBJ_PATH)fractal_sets/
-	@mkdir $(OBJ_PATH)color_schemes/
-
+	@mkdir -p $(OBJ_PATH)
+	
 $(LIBFT):
 	@echo "Making libft..."
 	@make -sC $(LIBFT_PATH)
 
 $(NAME): $(OBJS)
-	@echo "Compiling push swap..."
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(INC) -lXext -lm
+	@echo "Compiling push_swap..."
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm
 	@echo "push_swap ready."
 	@echo "██████   █████  ██        ██  ██    ██  ██████   ██████     ██ █     ██    ███████        "
 	@echo "  ██    ██      ██ ██  ██ ██  ██    ██  ██       ██    ██   ██  █    ██  ██       ██      "
@@ -58,7 +61,7 @@ $(NAME): $(OBJS)
 	@echo "██████  █████   ██        ██  ██    ██  ██████   ██    ██   ██     █ ██  ██       ██      "
 	@echo "▒ ▒▓▒ ▒ ░░ ▒░▓  ░░░ ▒░ ░ ░▒   ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░░▓  ▒ ▒▓▒ ▒ ░▓░░▓  ▒ ▒▓▒ ▒ ░▓░░▓  ▒ ▒▓▒"
 	@echo " ░░ ▒░▓  ░░░ ▒░ ░ ░▒   ▒  ▒▒    ░░ ▒░▓  ░░░ ▒░ ░ ░▒   ▒  ▒▒    ░░ ▒░▓  ░░░ ▒░ ░ ░▒   ▒  ▒▒"
-	@echo "                        2024/05/07 - ismherna@student.42.fr - 42 Madrid - Ismael Hernández"
+	@echo "                        2024/05/13 - ismherna@student.42.fr - 42 Madrid - Ismael Hernández"
 clean:
 
 bonus: all
@@ -71,7 +74,7 @@ clean:
 	@make clean -C $(LIBFT_PATH)
 
 fclean: clean
-	@echo "Removing fractol..."
+	@echo "Removing push_swap..."
 	@rm -f $(NAME)
 	@rm -f $(LIBFT_PATH)$(LIBFT_NAME)
 

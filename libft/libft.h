@@ -6,7 +6,7 @@
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 10:57:52 by ismherna          #+#    #+#             */
-/*   Updated: 2024/04/30 23:56:48 by ismherna         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:41:31 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdbool.h>
+
 
 //new functions
 int		ft_ishexdigit(int c);
@@ -80,4 +82,13 @@ void	ft_lstdelone(t_list *list, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del) (void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*Push swap expansion functions*/
+void	ft_ERROR(char *error_msg, bool yeet);
+void	ft_free_2Xarray(char **arr);
+long long int ft_atoll(const char *str); 
+void	ft_insert_sort(int array[], int n);
+int		ft_index(int n, int *arr);
+int		ft_dup_brute_force(int *numbers, int count);
+int 	ft_sqrt(int x); 
 #endif

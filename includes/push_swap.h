@@ -1,54 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/13 12:38:43 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/13 13:59:09 by ismherna         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include <limits.h>
+# include <stdbool.h>
 
-typedef struct s_list
+
+#include "../libft/libft.h"
+
+# define RED "\e[0;31m"
+# define YEL "\e[0;33m"
+
+typedef struct s_node
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-}				t_list;
+	int				data;
+	int				s_index;
+	struct s_node	*next;
+}					t_node;
 
-// OPS 
+typedef struct s_stack
+{
+	t_node			*head;
+	int				size;
+}					t_stack;
 
-int		sa(t_list **stack_a);
-int		sb(t_list **stack_b);
-int		ss(t_list **stack_a, t_list **stack_b);
-int		pa(t_list **stack_a, t_list **stack_b);
-int		pb(t_list **stack_b, t_list **stack_a);
-int		ra(t_list **stack_a);
-int		rb(t_list **stack_b);
-int		rr(t_list **stack_a, t_list **stack_b);
-int		rra(t_list **stack_a);
-int		rrb(t_list **stack_b);
-int		rrr(t_list **stack_a, t_list **stack_b);
+////////////////////////// PARSING //////////////////////////
 
+int			*arg_parse(int argc, char **argv, int length);
+int			check_digits(int argc, char **argv);
+void		check_range(char **s_numbers, int *numbers);
 
-// instructions
+////////////////////////// struct utils //////////////////////////
 
-int		swap(t_list **stack);
-int		push(t_list **stack_to, t_list **stack_from);
-int		rotate(t_list **stack);
-int		reverseRotate(t_list **stack);
+void		init_stack(t_stack *stack_a, t_stack *stack_b, int *nb, int c);
+void		push_stack(t_stack *stack, int index, int data);
+int			pop_stack(t_stack *stack);
 
-// Utils ALgo
-void	radix_sort(t_list **stack_a, t_list **stack_b);
-void	simple_sort(t_list **stack_a, t_list **stack_b);
-void	index_stack(t_list **stack);
-void	sort_5(t_list **stack_a, t_list **stack_b);
+////////////////////////// INSTRUCTIONS //////////////////////////
 
-// Utils 
+void		reverse_rotate_both(t_stack *stack_a, t_stack *stack_b);
+void		push(t_stack *stack1, t_stack *stack2, char x, bool b);
+void		rotate_both(t_stack *stack_a, t_stack *stack_b);
+void		reverse_rotate(t_stack *stack, char x, bool b);
+void		swap_both(t_stack *stack1, t_stack *stack2);
+void		rotate(t_stack *stack, char x, bool b);
+void		swap(t_stack *stack, char x, bool b);
 
-void	ft_error(char *msg);
-void	ft_check_args(int argc, char **argv);
-int		is_sorted(t_list **stack);
-int		get_distance(t_list **stack, int index);
-void	make_top(t_list **stack, int distance);
-void	free_stack(t_list **stack);
-void	ft_free(char **str); 
+////////////////////////// Sorting //////////////////////////////
 
+void		sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length);
+void		s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int i);
+void		k_sort1(t_stack *stack_a, t_stack *stack_b, int length);
+void		k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
+void		simple_sort(t_stack *stack, int length);
+int			is_sorted(t_stack *stack);
 
+////////////////////////// Utils ///////////////////////////////
 
+int			count_r(t_node *stack, int index);
+int			get_min_index(t_stack *stack);
+void		free_stack(t_stack *stack);
 
-#endif
+#endif // PUSH_SWAP_H

@@ -1,39 +1,33 @@
 # push_swap
-"Swap_push is not so natural"
 
-In this project we will organize data in a stack, with a limited set of instructions, and using the fewest possible number of actions. To be successful, we must try using various types of algorithms and choose the most appropriate solution.
-(among many possible ones) to achieve optimized data ordering.
-## Implementation
-- The push_swap algorithm can be implemented using different data structures such as stacks (Last In First Out) or linked lists. For this project, a doubly linked list data structure is recommended for efficient stack manipulation.
+<img width="842" alt="image" src="https://github.com/AzerSD/push_swap/assets/56733438/e2a4cc04-f1f8-4c0c-baac-4c1c81498b8b">
 
-  - Create a doubly linked list structure to represent stack nodes, with each node containing an integer value and pointers to the next and previous nodes.
-  - Implement functions for stack initialization, stack operations (push, pop, swap, rotate, and reverse rotate), and stack sorting.
-  - For my approach, I implemented a function to calculate the minimum number of moves required to push an element from stack A to stack B. This function will determine the optimal moves to push to stack B during the sorting process before the actual sorting operation begins.
+push_swap is a sorting algorithm based on sorting two stacks with the least amount of moves.
+The allowed moves are:
 
-## Sorting Algorithms
-- The push_swap algorithm uses different sorting techniques based on the number of elements in the stack:
-  - A sorting algorithm based on permutations is used for small stack sizes (typically 3 or less). This involves checking all possible permutations of the stack and determining the minimum number of operations required to sort it.
-  - For larger stack sizes, more efficient sorting algorithms such as quicksort or mergesort can be implemented. These algorithms divide the stack into smaller sub-stacks, sort them recursively, and then combine them to achieve the final sorted order.
+* sa (swap a): Swap the first 2 elements at the top of stack a.
+* sb (swap b): Swap the first 2 elements at the top of stack b.
+* ss : sa and sb at the same time.
+* pa (push a): Take the first element at the top of b and put it at the top of a.
+* pb (push b): Take the first element at the top of a and put it at the top of b.
+* ra (rotate a): Shift up all elements of stack a by 1. First becomes last.
+* rb (rotate b): Shift up all elements of stack b by 1. First becomes last.
+* rr : ra and rb at the same time.
+* rra (reverse rotate a): Shift down all elements of stack a by 1. Last becomes first.
+* rrb (reverse rotate b): Shift down all elements of stack b by 1. Last becomes first.
+* rrr : rra and rrb at the same time.
 
-## Usage
-- To compile the push_swap program, run:
-  ```
-  make
-  ```
-- To use the push_swap program, provide a series of integers as arguments:
-  ```
-  ./push_swap <integers>
-  ```
-  For example:
-  ```
-  ./push_swap 5 2 7 1 4
-  ```
-- The program will output a list of operations to sort the input stack. A two/three-letter code represents each operation. The goal is to minimize the number of operations required to sort the stack efficiently.
+>> By using these moves, the goal is to sort the numbers in stack A in ascending order, using stack B as a temporary storage.
 
-# Extras 
-Push_swap is not a very difficult project in terms of code construction. You will see that it doesn't need many steps to finish it. The hardest part is to find a solution to the problem and to to construct its algorithm. 
-And be careful with memory leaks. Good luck hitchhiker. 
+>> This algorithm is considered to be one of the simplest sorting algorithm, but it can be quite hard to optimize it and sort a large amount of numbers with a low amount of moves.
 
--Born2code
+# The Algorithm:
 
-![image](https://github.com/ismaelucky342/ft_printf/assets/153450550/0ab002b6-139e-4b74-b2f9-931ae794fb68)
+
+https://user-images.githubusercontent.com/56733438/213343838-583f273e-b108-4648-8d9c-8b2b95d1554b.mov
+
+# ksort
+
+
+
+

@@ -6,7 +6,7 @@
 #    By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 15:48:04 by ismherna          #+#    #+#              #
-#    Updated: 2024/04/24 16:53:46 by ismherna         ###   ########.fr        #
+#    Updated: 2024/05/13 13:14:49 by ismherna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,14 @@ SRC		=	ft_printf.c			\
 			ft_lstclear_bonus.c \
 			ft_lstiter_bonus.c \
 			ft_lstmap_bonus.c  \
+			ft_ERROR.c \
+			ft_atoll.c \
+			ft_free_2Xarray.c  \
+			ft_index.c \
+			ft_insert_sort.c \
+			ft_dup_brute_force.c \
+			ft_sqrt.c
+
 
 
 

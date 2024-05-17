@@ -1,12 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   ft_free_2Xarray.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 10:57:52 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/07 21:36:25 by ismherna         ###   ########.fr       */
+/*   Created: 2024/05/13 12:50:22 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/13 13:39:27 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	ft_free_2Xarray(char **arr)
+{
+	size_t	i;
+
+	i = 0;
+	if (arr)
+	{
+		while (arr && arr[i])
+		{
+			if (arr[i] != NULL)
+			{
+				free(arr[i]);
+				arr[i] = NULL;
+			}
+			i++;
+		}
+		free(arr);
+		arr = NULL;
+	}
+}
