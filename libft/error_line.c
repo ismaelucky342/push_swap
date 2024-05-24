@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_index.c                                         :+:      :+:    :+:   */
+/*   error_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 00:17:02 by asioud            #+#    #+#             */
-/*   Updated: 2024/05/24 12:33:10 by ismherna         ###   ########.fr       */
+/*   Created: 2024/02/12 10:57:52 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/24 12:12:58 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_index(int n, int *arr)
+void	error_line(char *msg, int32_t line, char *file, int32_t exit_nbr)
 {
-	int	i;
-
-	i = 0;
-	while (arr[i] != n)
-		i++;
-	return (i);
+	ft_printf_fd(STDERR_FILENO, "%s @ %s %s", msg, line, file);
+	if (exit_nbr >= 0)
+		exit(exit_nbr);
 }

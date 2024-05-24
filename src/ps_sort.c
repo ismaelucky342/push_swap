@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ksort.c                                            :+:      :+:    :+:   */
+/*   ps_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 12:38:43 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/13 12:39:01 by ismherna         ###   ########.fr       */
+/*   Created: 2024/05/20 07:34:35 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/24 12:43:11 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ void	simple_sort(t_stack *stack, int length)
 	if (is_rot_sort(stack, min_s_index))
 	{
 		if (r < length - r)
-			rotate(stack, 'a', true);
+			rotate(stack, 'a', TRUE);
 		else
-			reverse_rotate(stack, 'a', true);
+			reverse_rotate(stack, 'a', TRUE);
 	}
 	else
 	{
-		swap(stack, 'a', true);
+		swap(stack, 'a', TRUE);
 		if (is_sorted(stack))
 			return ;
 		if (r < length - r)
-			rotate(stack, 'a', true);
+			rotate(stack, 'a', TRUE);
 		else
-			reverse_rotate(stack, 'a', true);
+			reverse_rotate(stack, 'a', TRUE);
 	}
 }
 
@@ -73,19 +73,19 @@ void	s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int length)
 		if (count_r(stack_a->head, min_index) <= n - min_index - \
 			count_r(stack_a->head, min_index))
 			while (stack_a->head->s_index != min_index)
-				rotate(stack_a, 'a', true);
+				rotate(stack_a, 'a', TRUE);
 		else
 			while (stack_a->head->s_index != min_index)
-				reverse_rotate(stack_a, 'a', true);
+				reverse_rotate(stack_a, 'a', TRUE);
 		if (is_sorted(stack_a) && stack_b->size == 0)
 			return ;
-		push(stack_b, stack_a, 'b', true);
+		push(stack_b, stack_a, 'b', TRUE);
 		length--;
 	}
 	simple_sort(stack_a, length);
 	iter = 0;
 	while (iter++ < n - 3)
-		push(stack_a, stack_b, 'a', true);
+		push(stack_a, stack_b, 'a', TRUE);
 }
 
 void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
@@ -99,17 +99,20 @@ void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
 	{
 		if (stack_a->head->s_index <= i)
 		{
-			push(stack_b, stack_a, 'b', true);
-			rotate(stack_b, 'b', true);
+			push(stack_b, stack_a, 'b', TRUE);
 			i++;
 		}
 		else if (stack_a->head->s_index <= i + range)
 		{
-			push(stack_b, stack_a, 'b', true);
+			push(stack_b, stack_a, 'b', TRUE);
 			i++;
+			if (!(stack_a->head->s_index <= i + range))
+				rotate_both(stack_a, stack_b);
+			else
+				rotate(stack_b, 'b', TRUE);
 		}
 		else
-			rotate(stack_a, 'a', true);
+			rotate(stack_a, 'a', TRUE);
 	}
 }
 
@@ -125,15 +128,15 @@ void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
 		if (rb_count <= rrb_count)
 		{
 			while (stack_b->head->s_index != length - 1)
-				rotate(stack_b, 'b', true);
-			push(stack_a, stack_b, 'a', true);
+				rotate(stack_b, 'b', TRUE);
+			push(stack_a, stack_b, 'a', TRUE);
 			length--;
 		}
 		else
 		{
 			while (stack_b->head->s_index != length - 1)
-				reverse_rotate(stack_b, 'b', true);
-			push(stack_a, stack_b, 'a', true);
+				reverse_rotate(stack_b, 'b', TRUE);
+			push(stack_a, stack_b, 'a', TRUE);
 			length--;
 		}
 	}

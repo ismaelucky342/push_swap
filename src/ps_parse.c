@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 12:38:43 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/13 13:56:16 by ismherna         ###   ########.fr       */
+/*   Created: 2024/05/20 07:34:35 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/24 12:37:43 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	check_range(char **s_numbers, int *numbers)
 			|| ft_atoll(s_numbers[i]) < INT_MIN \
 			|| ft_strlen(s_numbers[i]) > 11)
 		{
-			ft_free_2Xarray(s_numbers);
+			free_2d(s_numbers);
 			free(numbers);
-			ft_ERROR(RED "Error", 1);
+			display_error(RED "Error", 1);
 		}
 		i++;
 	}
@@ -74,12 +74,12 @@ int	*arg_parse(int argc, char **argv, int count)
 	{
 		s_numbers = ft_split(argv[i], ' ');
 		if (!s_numbers)
-			ft_ERROR("", 1);
+			display_error("", 1);
 		check_range(s_numbers, numbers);
 		k = 0;
 		while (s_numbers[k])
 			numbers[j++] = ft_atoi(s_numbers[k++]);
-		ft_free_2Xarray(s_numbers);
+		free_2d(s_numbers);
 	}
 	return (numbers);
 }

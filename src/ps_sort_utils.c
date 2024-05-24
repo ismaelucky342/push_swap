@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ksort_utils.c                                      :+:      :+:    :+:   */
+/*   ps_sort_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 12:38:43 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/13 13:20:52 by ismherna         ###   ########.fr       */
+/*   Created: 2024/05/20 07:34:35 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/24 12:42:24 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 	{
 		free(numbers);
 		free_stack(stack_a);
-		ft_ERROR("", 1);
+		display_error("", 1);
 	}
 	else if (length == 2)
-		swap(stack_a, 'a', true);
+		swap(stack_a, 'a', TRUE);
 	else if (length == 3)
 		simple_sort(stack_a, length);
 	else if (length <= 7)
@@ -81,5 +81,5 @@ void	sort(t_stack *stack_a, t_stack *stack_b, int *numbers, int length)
 		k_sort2(stack_a, stack_b, length);
 	}
 	else
-		ft_ERROR("", 1);
+		display_error("", 1);
 }

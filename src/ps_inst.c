@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_instructions.c                                  :+:      :+:    :+:   */
+/*   ps_inst.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 12:38:43 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/13 13:39:14 by ismherna         ###   ########.fr       */
+/*   Created: 2024/05/20 07:34:35 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/24 12:42:11 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/push_swap.h"
 
-void	swap(t_stack *stack, char x, bool b)
+void	swap(t_stack *stack, char x, t_bool b)
 {
 	t_node	*tmp;
 
@@ -31,7 +30,7 @@ void	swap(t_stack *stack, char x, bool b)
 	}
 }
 
-void	push(t_stack *stack1, t_stack *stack2, char x, bool b)
+void	push(t_stack *stack1, t_stack *stack2, char x, t_bool b)
 {
 	int	index;
 
@@ -47,7 +46,7 @@ void	push(t_stack *stack1, t_stack *stack2, char x, bool b)
 	}
 }
 
-void	rotate(t_stack *stack, char x, bool b)
+void	rotate(t_stack *stack, char x, t_bool b)
 {
 	t_node	*tmp;
 	t_node	*current;
@@ -69,7 +68,7 @@ void	rotate(t_stack *stack, char x, bool b)
 	}
 }
 
-void	reverse_rotate(t_stack *stack, char x, bool b)
+void	reverse_rotate(t_stack *stack, char x, t_bool b)
 {
 	t_node	*current;
 	t_node	*tmp;

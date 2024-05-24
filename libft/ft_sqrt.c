@@ -5,25 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 13:13:15 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/13 13:14:22 by ismherna         ###   ########.fr       */
+/*   Created: 2024/05/24 12:21:27 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/24 12:21:30 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_sqrt(int x) {
-    if (x < 0) {
-        return 0;
-    }
+int	ft_sqrt(int number)
+{
+	int	i;
 
-    int i = 0;
-    while (i * i <= x) {
-        if (i * i == x) {
-            // Si encontramos una solución exacta, devolvemos i.
-            return i;
-        }
-        i++;
-    }
-    return 0;
+	if (number < 4)
+		return (1);
+	i = 2;
+	while (i * i < number)
+		i++;
+	if (i * i > number)
+	{
+		if ((i * i - number) < ((i - 1) * (i - 1) + (-number)))
+			return (i);
+	}
+	return (i - 1);
 }

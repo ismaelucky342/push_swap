@@ -6,7 +6,7 @@
 #    By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 15:48:04 by ismherna          #+#    #+#              #
-#    Updated: 2024/05/13 13:14:49 by ismherna         ###   ########.fr        #
+#    Updated: 2024/05/24 12:33:23 by ismherna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,17 +66,14 @@ SRC		=	ft_printf.c			\
 			ft_lstclear_bonus.c \
 			ft_lstiter_bonus.c \
 			ft_lstmap_bonus.c  \
-			ft_ERROR.c \
-			ft_atoll.c \
-			ft_free_2Xarray.c  \
-			ft_index.c \
-			ft_insert_sort.c \
-			ft_dup_brute_force.c \
-			ft_sqrt.c
-
-
-
-
+			display_error.c 	\
+			free_2d.c	 \
+			ft_atoll.c	 \
+			ft_sqrt.c	 \
+			checkD_bf.c	 \
+			ins_sort.c	 \
+			ft_index.c		\
+			ins_sort.c
 
 OBJ		=	${SRC:.c=.o}
 

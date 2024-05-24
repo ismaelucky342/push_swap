@@ -5,37 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 12:52:41 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/13 12:52:56 by ismherna         ###   ########.fr       */
+/*   Created: 2024/02/12 10:57:52 by ismherna          #+#    #+#             */
+/*   Updated: 2024/05/24 12:13:23 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdlib.h>
+int64_t	ft_atoll(const char *str)
+{
+	size_t	i;
+	int32_t	sign;
+	int64_t	out;
 
-long long int ft_atoll(const char *str) {
-    long long int result = 0;
-    int sign = 1;
-
-    // Ignorar espacios en blanco iniciales
-    while (*str && (*str == ' ' || *str == '\t'))
-        str++;
-
-    // Manejar signo
-    if (*str == '-') {
-        sign = -1;
-        str++;
-    } else if (*str == '+') {
-        str++;
-    }
-
-    // Convertir dígitos a entero
-    while (*str && (*str >= '0' && *str <= '9')) {
-        result = (result * 10) + (*str - '0');
-        str++;
-    }
-
-    // Aplicar signo
-    return result * sign;
+	i = 0;
+	sign = 1;
+	out = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+		out = (out * 10) + (str[i++] - '0');
+	return (out * sign);
 }

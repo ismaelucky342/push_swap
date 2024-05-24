@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_2Xarray.c                                  :+:      :+:    :+:   */
+/*   checkD_bf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 12:50:22 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/13 13:39:27 by ismherna         ###   ########.fr       */
+/*   Created: 2023/01/09 23:56:21 by asioud            #+#    #+#             */
+/*   Updated: 2024/05/24 12:43:56 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_2Xarray(char **arr)
+int	checkd_bf(int *numbers, int count)
 {
-	size_t	i;
+	int		i;
+	int		j;
 
 	i = 0;
-	if (arr)
+	while (i < count)
 	{
-		while (arr && arr[i])
+		j = i + 1;
+		while (j < count)
 		{
-			if (arr[i] != NULL)
-			{
-				free(arr[i]);
-				arr[i] = NULL;
-			}
-			i++;
+			if (numbers[i] == numbers[j])
+				return (1);
+			j++;
 		}
-		free(arr);
-		arr = NULL;
+		i++;
 	}
+	return (0);
 }
