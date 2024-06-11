@@ -6,12 +6,12 @@
 #    By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 07:34:35 by ismherna          #+#    #+#              #
-#    Updated: 2024/05/29 10:52:48 by ismherna         ###   ########.fr        #
+#    Updated: 2024/06/10 01:12:25 by ismherna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC      = gcc
-CFLAGS  = -Werror -Wextra -Wall
+CFLAGS  = -Werror -Wextra -Wall -g
 
 LIBFT_PATH  = libft/
 LIBFT_NAME  = libft.a

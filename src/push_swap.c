@@ -6,7 +6,7 @@
 /*   By: ismherna <ismherna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 07:34:35 by ismherna          #+#    #+#             */
-/*   Updated: 2024/05/31 16:16:37 by ismherna         ###   ########.fr       */
+/*   Updated: 2024/06/03 01:04:17 by ismherna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 	sort(&stack_a, &stack_b, numbers, count);
 	free(numbers);
 	free_stack(&stack_a);
+	system("leaks push_swap");
 	return (0);
 }
 
